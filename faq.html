@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dúvidas Frequentes — Loba Drinks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="wolf-mark"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>
+      <div>
+        <div class="brand-name">Loba Drinks</div>
+        <div class="brand-sub">Alquimia & Coquetelaria</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#products">Sabores</a>
+      <a href="index.html#about">Sobre</a>
+      <a href="index.html#calculadora">Orçamento</a>
+      <a href="index.html#contact">Contato</a>
+      <a href="faq.html" class="active">Dúvidas</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="faq-hero">
+  <div class="faq-hero-bg"></div>
+  <div class="faq-hero-content">
+    <span class="eyebrow">🐺 Tire suas dúvidas</span>
+    <h1 class="faq-title">Perguntas<br><em>Frequentes</em></h1>
+    <div class="hero-line"></div>
+    <p class="faq-subtitle">Tudo o que você precisa saber antes de contratar a Alcateia para o seu evento.</p>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+
+  <!-- Categoria 1 -->
+  <div class="faq-category">
+    <span class="faq-category-label">Serviços & Identidade</span>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Que tipo de serviço a Loba Drinks oferece?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Oferecemos um serviço completo de <strong>bar itinerante (open bar)</strong> para casamentos, aniversários, festas corporativas e eventos em geral. Levamos toda a estrutura de balcão com nossa identidade neon, equipe de bartenders caracterizada, insumos premium e copos.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Qual é o principal diferencial de atendimento de vocês?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Nosso bar é um <strong>espaço seguro</strong>. Somos uma empresa orgulhosamente voltada e gerida pela comunidade <strong>LGBTQIAPN+</strong>. Nosso foco é o acolhimento, o respeito a todas as identidades e um atendimento caloroso e livre de preconceitos. Além disso, nossos drinks utilizam licores e xaropes artesanais de fabricação própria.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Categoria 2 -->
+  <div class="faq-category">
+    <span class="faq-category-label">Cardápios & Pacotes</span>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Como funcionam os cardápios?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Trabalhamos com três linhas principais de menus para atender a diferentes propostas:
+          <ul>
+            <li><strong>Alquimia da Alcateia</strong> — nosso cardápio clássico e versátil.</li>
+            <li><strong>Trilha dos Sentidos</strong> — menu intermediário focado em experiências sensoriais.</li>
+            <li><strong>Legado da Alcateia</strong> — o topo da nossa coquetelaria, focado em criações autorais exclusivas.</li>
+          </ul>
+          <br>Todos os cardápios possuem <strong>opções com e sem álcool</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Quantas horas de evento estão inclusas nos pacotes?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Nossos pacotes padrão cobrem <strong>5 horas de serviço ininterrupto</strong>. Caso o seu evento precise de mais tempo, a contratação de horas adicionais pode ser acordada durante o orçamento.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Quem fornece as bebidas e os insumos?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          <strong>A Loba Drinks cuida de tudo!</strong> Levamos as bebidas alcoólicas, frutas frescas da estação, gelo filtrado, copos descartáveis de linha premium e nossas receitas artesanais exclusivas.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Categoria 3 -->
+  <div class="faq-category">
+    <span class="faq-category-label">Logística & Equipe</span>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Vocês atendem eventos fora da cidade de origem?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Sim! Atendemos diversas regiões. Cobramos uma <strong>taxa de deslocamento</strong> calculada a partir de 10 km rodados do ponto de partida da nossa sede.
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Como funciona a equipe no dia do evento?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Para garantir que ninguém fique esperando na fila, nossa equipe padrão conta com <strong>03 profissionais</strong>:
+          <ul>
+            <li><strong>01 Bartender Líder</strong> — supervisiona a qualidade e opera no bar.</li>
+            <li><strong>02 Bartenders de Apoio</strong> — rápidos e treinados para atender com excelência.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Categoria 4 -->
+  <div class="faq-category">
+    <span class="faq-category-label">Pagamento</span>
+
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="toggle(this)">
+        <span class="accordion-question">Quais são as formas de pagamento disponíveis?</span>
+        <span class="accordion-icon">+</span>
+      </button>
+      <div class="accordion-body">
+        <div class="accordion-body-inner">
+          Facilitamos para que o seu evento aconteça sem dores de cabeça:
+          <ul>
+            <li><strong>Cartão de Crédito</strong> — parcelamento em até 10x (consulte taxas da operadora).</li>
+            <li><strong>Pix Programado</strong> — pagamentos fixos mensais, desde que o saldo total seja quitado até 15 dias antes do grande dia.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="faq-cta">
+  <h2 class="faq-cta-title">Sua dúvida não está <em>aqui?</em></h2>
+  <p>Fale com a gente direto pelo WhatsApp — respondemos rapidinho! 🐺</p>
+  <a href="https://wa.me/5511951253897?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20o%20serviço%20da%20Loba%20Drinks" target="_blank" class="btn btn-primary">💬 Falar pelo WhatsApp</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wolf"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>
+  <div class="footer-brand">Loba Drinks</div>
+  <div class="footer-sub">Alquimia & Coquetelaria</div>
+  <div class="footer-copy">© 2024 Loba Drinks. Todos os direitos reservados.</div>
+  <div style="margin-top:1rem;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--muted);font-size:1rem;">"Feito com o coração da alcateia" ✨</div>
+  <div class="footer-legal">⚠️ Beba com responsabilidade. Venda proibida para menores de 18 anos.</div>
+</footer>
+<script src="java/main.js" defer></script>
+</body>
+</html>
