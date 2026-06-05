@@ -145,11 +145,15 @@ function initMobileNav() {
 
   if (!navToggleBtn || !navLinksMenu) return;
 
-  navToggleBtn.addEventListener('click', function (event) {
+  const toggleNav = function (event) {
+    event.preventDefault();
     event.stopPropagation();
-    this.classList.toggle('active');
+    navToggleBtn.classList.toggle('active');
     navLinksMenu.classList.toggle('open');
-  });
+  };
+
+  navToggleBtn.addEventListener('click', toggleNav);
+  navToggleBtn.addEventListener('touchstart', toggleNav);
 
   document.addEventListener('click', function (event) {
     if (!event.target.closest('nav')) {

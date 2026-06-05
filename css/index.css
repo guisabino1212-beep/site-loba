@@ -339,7 +339,7 @@ section { padding: 6rem 2rem; }
 }
 .field input, .field select {
   width: 100%;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.08);
   border: 1px solid var(--border);
   color: var(--cream);
   padding: 0.8rem 1rem;
@@ -351,6 +351,9 @@ section { padding: 6rem 2rem; }
 }
 .field input:focus, .field select:focus { border-color: var(--amber); }
 .field input::placeholder { color: var(--muted); }
+.field select { color: var(--cream); }
+
+#rPacote { color: var(--gold); }
 
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
@@ -543,6 +546,8 @@ footer {
     align-items: flex-start;
     padding: 1rem 1.5rem;
     display: none;
+    z-index: 110;
+    width: 100%;
   }
   .nav-links.open { display: flex; }
   .nav-links a {
