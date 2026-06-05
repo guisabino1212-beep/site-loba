@@ -20,7 +20,12 @@
         <div class="brand-sub">Alquimia & Coquetelaria</div>
       </div>
     </div>
-    <div class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="#products">Sabores</a>
       <a href="servicos.html">Serviços</a>
       <a href="#about">Sobre</a>
@@ -99,48 +104,22 @@
   </div>
 </section>
 
-<!-- USE CASES -->
-<section style="background:var(--card);">
-  <div class="container">
-    <span class="section-label">Ocasiões</span>
-    <h2 class="section-title">Perfeito <em>Para</em></h2>
-    <div class="section-rule"></div>
-    <div class="usecases-grid">
-      <div class="usecase-card">
-        <span class="usecase-emoji">🎁</span>
-        <div class="usecase-title">Presentear</div>
-        <p class="usecase-desc">Presente sofisticado e memorável</p>
-      </div>
-      <div class="usecase-card">
-        <span class="usecase-emoji">🎉</span>
-        <div class="usecase-title">Eventos</div>
-        <p class="usecase-desc">Coquetéis e drinks especiais</p>
-      </div>
-      <div class="usecase-card">
-        <span class="usecase-emoji">✨</span>
-        <div class="usecase-title">Momentos Especiais</div>
-        <p class="usecase-desc">Celebre com estilo e exclusividade</p>
-      </div>
-      <div class="usecase-card">
-        <span class="usecase-emoji">🧊</span>
-        <div class="usecase-title">Degustar Gelado</div>
-        <p class="usecase-desc">Aprecie a qualidade artesanal</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section id="about" style="background:var(--deep);">
   <div class="container">
     <span class="section-label">Nossa História</span>
     <h2 class="section-title">Sobre a <em>Alcateia</em></h2>
     <div class="section-rule"></div>
-    <div class="about-block">
-      <p><strong>📖 O Nascimento da Alcateia</strong></p>
-      <p>A Loba Drinks nasceu do desejo de transformar a coquetelaria em um ato de celebração da liberdade e da identidade. Criada por e para a comunidade LGBTQIAPN+, a marca surgiu para preencher uma lacuna no mercado de eventos: a necessidade de um bar que entregasse alta coquetelaria artesanal associada a um ambiente de acolhimento real, segurança e muito orgulho.</p>
-      <p>O nome "Loba" vem do instinto — aquela força visceral que nos move a sermos autênticos e a protegermos a nossa alcateia. Começamos na cozinha, desenvolvendo nossos próprios licores artesanais e xaropes autorais. Hoje, cruzamos distâncias para levar uma estrutura itinerante vibrante, iluminada a neon, onde corpos e identidades dissidentes são celebrados com respeito e sofisticação.</p>
-      <p>Não servimos apenas bebidas. Criamos rituais.<br><strong>Siga seu Instinto. Beba Loba. 🐺🏳️‍🌈🏳️‍⚧️</strong></p>
+    <div class="about-block about-flex">
+      <div class="about-image">
+        <img src="img/fundador/grok-image-f48827ab-b9fe-4d17-99d8-db12cddd8555.jpg" alt="Fundadores Loba Drinks">
+      </div>
+      <div class="about-text">
+        <p><strong>📖 O Nascimento da Alcateia</strong></p>
+        <p>A Loba Drinks nasceu do desejo de transformar a coquetelaria em um ato de celebração da liberdade e da identidade. Criada por e para a comunidade LGBTQIAPN+, a marca surgiu para preencher uma lacuna no mercado de eventos: a necessidade de um bar que entregasse alta coquetelaria artesanal associada a um ambiente de acolhimento real, segurança e muito orgulho.</p>
+        <p>O nome "Loba" vem do instinto — aquela força visceral que nos move a sermos autênticos e a protegermos a nossa alcateia. Começamos na cozinha, desenvolvendo nossos próprios licores artesanais e xaropes autorais. Hoje, cruzamos distâncias para levar uma estrutura itinerante vibrante, iluminada a neon, onde corpos e identidades dissidentes são celebradas com respeito e sofisticação.</p>
+        <p>Não servimos apenas bebidas. Criamos rituais.<br><strong>Siga seu Instinto. Beba Loba. 🐺🏳️‍🌈🏳️‍⚧️</strong></p>
+      </div>
     </div>
   </div>
 </section>
@@ -320,126 +299,11 @@
   <div class="footer-wolf"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>
   <div class="footer-brand">Loba Drinks</div>
   <div class="footer-sub">Alquimia & Coquetelaria</div>
-  <div class="footer-copy">© 2024 Loba Drinks. Todos os direitos reservados.</div>
+  <div class="footer-copy">© 2026 Loba Drinks. Todos os direitos reservados.</div>
   <div style="margin-top:1rem;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--muted);font-size:1rem;">"Feito com o coração da alcateia" ✨</div>
   <div class="footer-legal">⚠️ Beba com responsabilidade. Venda proibida para menores de 18 anos.</div>
 </footer>
 
-<script>
-// ── CALENDAR ──
-const MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
-let calDate = new Date();
-let selectedDate = null;
-calDate.setDate(1);
-
-function toggleCal() {
-  const d = document.getElementById('calDropdown');
-  d.classList.toggle('open');
-  if (d.classList.contains('open')) renderCal();
-}
-
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('.calendar-wrap')) {
-    document.getElementById('calDropdown').classList.remove('open');
-  }
-});
-
-function changeMonth(dir) {
-  calDate.setMonth(calDate.getMonth() + dir);
-  renderCal();
-}
-
-function renderCal() {
-  const y = calDate.getFullYear(), m = calDate.getMonth();
-  document.getElementById('calMonthLabel').textContent = MONTHS[m] + ' ' + y;
-
-  const firstDay = new Date(y, m, 1).getDay();
-  const daysInMonth = new Date(y, m + 1, 0).getDate();
-  const today = new Date(); today.setHours(0,0,0,0);
-
-  const grid = document.getElementById('calGrid');
-  grid.innerHTML = '';
-
-  for (let i = 0; i < firstDay; i++) {
-    const el = document.createElement('div');
-    el.className = 'cal-day empty';
-    grid.appendChild(el);
-  }
-
-  for (let d = 1; d <= daysInMonth; d++) {
-    const dayDate = new Date(y, m, d);
-    const el = document.createElement('div');
-    el.className = 'cal-day';
-    el.textContent = d;
-
-    if (dayDate < today) el.classList.add('past');
-    if (dayDate.toDateString() === today.toDateString()) el.classList.add('today');
-    if (selectedDate && dayDate.toDateString() === selectedDate.toDateString()) el.classList.add('selected');
-
-    if (dayDate >= today) {
-      el.addEventListener('click', () => selectDay(dayDate, d, m, y));
-    }
-    grid.appendChild(el);
-  }
-}
-
-function selectDay(date, d, m, y) {
-  selectedDate = date;
-  const fmt = String(d).padStart(2,'0') + '/' + String(m+1).padStart(2,'0') + '/' + y;
-  document.getElementById('calDisplay').textContent = fmt;
-  document.getElementById('calDropdown').classList.remove('open');
-  renderCal();
-}
-
-// Initialize calendar
-renderCal();
-
-// ── CALCULATOR ──
-function calcular() {
-  const nome = document.getElementById('nome').value.trim();
-  const horas = parseInt(document.getElementById('horas').value);
-  const pessoas = parseInt(document.getElementById('pessoas').value) || 0;
-  const pacoteVal = parseInt(document.getElementById('pacote').value);
-  const pacoteSelect = document.getElementById('pacote');
-  const pacoteLabel = pacoteSelect.options[pacoteSelect.selectedIndex].text;
-
-  if (!nome) { alert('Por favor, informe seu nome.'); return; }
-  if (!selectedDate) { alert('Por favor, selecione a data do evento.'); return; }
-  if (!horas || horas < 1) { alert('Por favor, informe a duração do evento.'); return; }
-  if (!pessoas || pessoas < 1) { alert('Por favor, informe o número de pessoas.'); return; }
-
-  const total = pacoteVal * pessoas;
-  const dataFmt = document.getElementById('calDisplay').textContent;
-
-  // Fill result
-  document.getElementById('rNome').textContent = nome;
-  document.getElementById('rData').textContent = dataFmt;
-  document.getElementById('rHoras').textContent = horas + ' horas';
-  document.getElementById('rPacote').textContent = pacoteLabel;
-  document.getElementById('rPessoas').textContent = pessoas + ' pessoas';
-  document.getElementById('rTotal').textContent = 'R$ ' + total.toLocaleString('pt-BR');
-
-  // WhatsApp link
-  const msg = `Olá! Gostaria de um orçamento para a Loba Drinks 🐺\n\n` +
-    `*Nome:* ${nome}\n` +
-    `*Data do evento:* ${dataFmt}\n` +
-    `*Duração:* ${horas} horas\n` +
-    `*Plano:* ${pacoteLabel}\n` +
-    `*Convidados:* ${pessoas} pessoas\n` +
-    `*Estimativa:* R$ ${total.toLocaleString('pt-BR')}\n\n` +
-    `Aguardo confirmação e mais detalhes!`;
-  document.getElementById('whatsLink').href = 'https://wa.me/5511951253897?text=' + encodeURIComponent(msg);
-
-  // Show result
-  document.getElementById('resultPanel').classList.add('visible');
-  document.getElementById('resultPlaceholder').style.display = 'none';
-
-  // Smooth scroll to result on mobile
-  if (window.innerWidth < 860) {
-    document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-</script>
-<script src="../java/main.js" defer></script>
+<script src="java/main.js" defer></script>
 </body>
 </html>

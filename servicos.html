@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/servicos.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -19,7 +20,12 @@
         <div class="brand-sub">Alquimia & Coquetelaria</div>
       </div>
     </div>
-    <div class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="index.html">Início</a>
       <a href="servicos.html" class="active">Serviços</a>
       <a href="index.html#products">Sabores</a>
@@ -43,7 +49,7 @@
       <a href="index.html" class="btn btn-secondary">Voltar ao site</a>
       <a href="https://wa.me/5511951253897?text=Olá!%20Quero%20saber%20mais%20sobre%20os%20serviços%20da%20Loba%20Drinks" class="btn btn-primary" target="_blank">💬 Falar pelo WhatsApp</a>
     </div>
-    <p style="color: var(--muted); margin: 1.25rem auto 0; max-width: 520px; font-style: italic;">Solicitar um orçamento ↓<br>Ao clicar no botão, você será redirecionado para o WhatsApp!</p>
+    <p style="color: var(--muted); margin: 1.25rem auto 0; max-width: 520px; font-style: italic;">Solicitar um orçamento ↓<br>Ao clicar no botão, você será levado à calculadora de orçamento.</p>
   </div>
 </section>
 
@@ -61,7 +67,7 @@
         </div>
         <div class="usecase-card-content">
           <h3 class="usecase-title">Barman Para Corporativos</h3>
-          <a class="usecase-btn" href="https://wa.me/5511951253897?text=Olá!%20Quero%20fazer%20um%20orçamento%20de%20serviços%20da%20Loba%20Drinks" target="_blank">Fazer Orçamento</a>
+          <a class="usecase-btn" href="index.html#calculadora">Fazer Orçamento</a>
         </div>
       </div>
       <div class="usecase-card">
@@ -70,7 +76,7 @@
         </div>
         <div class="usecase-card-content">
           <h3 class="usecase-title">Barman Festas</h3>
-          <a class="usecase-btn" href="https://wa.me/5511951253897?text=OlÃ¡!%20Quero%20fazer%20um%20orÃ§amento%20de%20serviÃ§os%20da%20Loba%20Drinks" target="_blank">Fazer OrÃ§amento</a>
+          <a class="usecase-btn" href="index.html#calculadora">Fazer Orçamento</a>
         </div>
       </div>
       <div class="usecase-card">
@@ -79,7 +85,7 @@
         </div>
         <div class="usecase-card-content">
           <h3 class="usecase-title">Barman Casamentos</h3>
-          <a class="usecase-btn" href="https://wa.me/5511951253897?text=OlÃ¡!%20Quero%20fazer%20um%20orÃ§amento%20de%20serviÃ§os%20da%20Loba%20Drinks" target="_blank">Fazer OrÃ§amento</a>
+          <a class="usecase-btn" href="index.html#calculadora">Fazer Orçamento</a>
         </div>
       </div>
     </div>
@@ -139,6 +145,25 @@
         </div>
     </section>
 
+    <!-- INÍCIO DA SEÇÃO CTA STRIKE BARTENDER -->
+
+<div id="strike-cta-outer">
+    <div id="strike-cta-wrapper">
+        <!-- Lado da Foto -->
+        <div class="strike-col-image"></div>
+
+        <!-- Lado do Texto -->
+        <div class="strike-col-text">
+            <h2>Você está a um clique de ter toda qualidade, experiência e dedicação da Loba Drinks junte-se Á Alcateia</h2>
+            <p>Clique no Botão abaixo e solicite um Orçamento Agora Mesmo ↓</p>
+            <a href="index.html#calculadora" class="strike-btn">
+                Solicitar um Orçamento →
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- FIM DA SEÇÃO CTA STRIKE BARTENDER -->
 
 <footer>
   <div class="footer-wolf"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>

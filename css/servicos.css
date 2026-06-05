@@ -82,6 +82,33 @@ nav {
 .nav-links a:hover,
 .nav-links a.active { color: var(--gold); }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 120;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 999px;
+  position: absolute;
+  left: 8px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle span:nth-child(1) { top: 10px; }
+.nav-toggle span:nth-child(2) { top: 18px; }
+.nav-toggle span:nth-child(3) { top: 26px; }
+.nav-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
 .hero {
   min-height: 80vh;
   display: flex; align-items: center; justify-content: center;
@@ -96,7 +123,7 @@ nav {
     radial-gradient(ellipse 60% 50% at 50% 60%, rgba(142,79,251,0.16) 0%, transparent 70%),
     radial-gradient(ellipse 40% 30% at 20% 20%, rgba(122,58,189,0.18) 0%, transparent 60%),
     linear-gradient(rgba(5,3,5,0.75), rgba(10,4,18,0.45)),
-    url("../img/logo/grok-image-994d8796-6029-4270-81cf-156406d769aa.jpg"),
+    url("../img/servi├ºos/acrescente_balde_de_gelo_2K_202606011611.jpeg"),
     var(--black);
   background-size: cover;
   background-position: center;
@@ -335,7 +362,7 @@ footer {
   padding: 3rem 2rem;
   text-align: center;
 }
-.footer-wolf { font-size: 2.5rem; margin-bottom: 1rem; }
+.footer-wolf { font-size: 2.5rem; margin: 0 auto 1rem; display: inline-block; }
 .footer-brand {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem; letter-spacing: 0.15em; color: var(--gold);
@@ -347,11 +374,260 @@ footer {
   display: inline-block;
   padding: 0.5rem 1.2rem;
   border: 1px solid rgba(122,58,189,0.35);
-  font-size: 0.72rem; color: var(--b383ff);
+  font-size: 0.72rem; color: var(--gold);
   letter-spacing: 0.1em;
 }
 
+@media (max-width: 860px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: rgba(10, 8, 5, 0.98);
+    border-top: 1px solid var(--border);
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    width: 100%;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hero { padding: 6rem 1.5rem 3rem; }
+  section { padding: 4.5rem 1.5rem; }
+  .usecase-card-content { padding: 1.5rem 1rem 1.6rem; }
+}
+
 @media (max-width: 720px) {
-  .nav-links { display: none; }
   .hero-title { font-size: 3rem; }
+  .feature-item { padding: 0; }
+  .features-grid { gap: 30px; }
+  .why-choose-us { padding: 60px 14px; }
+}
+
+/* Strike Bartender CTA */
+#strike-cta-section {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  background: var(--black);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  color: #ffffff;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif, Arial;
+}
+
+#strike-cta-section .cta-image {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: left center;
+}
+
+#strike-cta-section .cta-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.25;
+}
+
+#strike-cta-section .cta-container {
+  width: 50%;
+  max-width: 100%;
+  padding: 60px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+.strike-col-image::after {
+  display: none !important;
+}
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+#strike-cta-section p {
+  font-size: 1.1rem;
+  margin: 0 0 35px 0;
+  font-weight: 400;
+  color: #f0f0f0;
+  margin: 0; /* garante que não haja espaçamento interno */
+}
+
+#strike-cta-section .btn-orcamento {
+  display: inline-block;
+  background-color: #ffcc00;
+  color: #000000;
+  padding: 18px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: none;
+  cursor: pointer;
+}
+
+#strike-cta-section .btn-orcamento:hover {
+  background-color: #e6b800;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+#strike-cta-section .btn-orcamento span {
+  margin-left: 10px;
+  font-size: 1.3rem;
+  vertical-align: middle;
+}
+
+@media (max-width: 992px) {
+  #strike-cta-section {
+    flex-direction: column;
+    min-height: auto;
+  }
+  #strike-cta-section .cta-image {
+    width: 100%;
+    height: 300px;
+    order: 1;
+  }
+  #strike-cta-section .cta-container {
+    width: 100%;
+    padding: 40px 5%;
+    text-align: center;
+    order: 2;
+  }
+  #strike-cta-section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+@media (max-width: 600px) {
+  #strike-cta-section .cta-image {
+    height: 200px;
+  }
+  #strike-cta-section .cta-container {
+    padding: 30px 4%;
+  }
+}
+
+#strike-cta-outer {
+  width: 100%;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif, Arial;
+}
+
+#strike-cta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 500px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.strike-col-image {
+  flex: 1.1;
+  width: 55%;
+  min-width: 300px;
+  min-height: 400px;
+  position: relative;
+  background-image: url('../img/foto%20final/lobo.jpg');
+  background-size: cover;
+  background-position: left center;
+  opacity: 0.9;
+}
+
+.strike-col-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+.strike-col-text {
+  flex: 0.9;
+  width: 45%;
+  min-width: 300px;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 60px;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.strike-col-text h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.strike-col-text p {
+  font-size: 1.1rem;
+  color: #dddddd;
+  margin: 0 0 30px 0;
+  line-height: 1.4;
+}
+
+.strike-btn {
+  display: inline-block;
+  background-color: #f7d117;
+  color: #000000;
+  padding: 18px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: fit-content;
+  transition: 0.3s;
+}
+
+.strike-btn:hover {
+  background-color: #e5c115;
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .strike-col-image {
+    width: 100%;
+    height: 300px;
+  }
+  .strike-col-image::after {
+    width: 100%;
+    height: 50%;
+    top: auto;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  }
+  .strike-col-text {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .strike-btn {
+    margin: 0 auto;
+  }
+  .strike-col-text h2 {
+    font-size: 1.8rem;
+  }
 }
