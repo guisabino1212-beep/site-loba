@@ -1,4 +1,7 @@
-const MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+// Utiliza a API de internacionalização para nomes de meses automáticos
+const MONTH_FORMATTER = new Intl.DateTimeFormat('pt-BR', { month: 'long' });
+const CURRENCY_FORMATTER = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+
 let calDate = new Date();
 let selectedDate = null;
 calDate.setDate(1);
@@ -30,7 +33,8 @@ function renderCal() {
 
   const y = calDate.getFullYear();
   const m = calDate.getMonth();
-  monthLabel.textContent = MONTHS[m] + ' ' + y;
+  const monthName = MONTH_FORMATTER.format(new Date(y, m));
+  monthLabel.textContent = monthName.charAt(0).toUpperCase() + monthName.slice(1) + ' ' + y;
 
   const firstDay = new Date(y, m, 1).getDay();
   const daysInMonth = new Date(y, m + 1, 0).getDate();
@@ -92,7 +96,7 @@ function calcular() {
   document.getElementById('rHoras')?.textContent = horas + ' horas';
   document.getElementById('rPacote')?.textContent = pacoteLabel;
   document.getElementById('rPessoas')?.textContent = pessoas + ' pessoas';
-  document.getElementById('rTotal')?.textContent = 'R$ ' + total.toLocaleString('pt-BR');
+  document.getElementById('rTotal')?.textContent = CURRENCY_FORMATTER.format(total);
 
   const msg = `Olá! Gostaria de um orçamento para a Loba Drinks 🐺\n\n` +
     `*Nome:* ${nome}\n` +
@@ -100,7 +104,7 @@ function calcular() {
     `*Duração:* ${horas} horas\n` +
     `*Plano:* ${pacoteLabel}\n` +
     `*Convidados:* ${pessoas} pessoas\n` +
-    `*Estimativa:* R$ ${total.toLocaleString('pt-BR')}\n\n` +
+    `*Estimativa:* ${CURRENCY_FORMATTER.format(total)}\n\n` +
     `Aguardo confirmação e mais detalhes!`;
   const whatsLink = document.getElementById('whatsLink');
   if (whatsLink) {
@@ -131,14 +135,6 @@ function toggle(btn) {
   }
 }
 
-function initPageScripts() {
-  if (document.getElementById('calGrid')) {
-    renderCal();
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initPageScripts);
-
 function initMobileNav() {
   const navToggleBtn = document.getElementById('navToggle');
   const navLinksMenu = document.getElementById('navLinks');
@@ -146,16 +142,29 @@ function initMobileNav() {
   if (!navToggleBtn || !navLinksMenu) return;
 
   const toggleNav = function (event) {
+    // Em alguns navegadores mobile, stopPropagation impede o click chegar no listener do document;
+    // mas preventDefault ajuda a evitar comportamento padrão em botões.
     event.preventDefault();
     event.stopPropagation();
+
     navToggleBtn.classList.toggle('active');
     navLinksMenu.classList.toggle('open');
   };
 
-  navToggleBtn.addEventListener('click', toggleNav);
-  navToggleBtn.addEventListener('touchstart', toggleNav);
+  // Evita que o menu feche imediatamente após abrir (ex.: click/touch gerados em sequência)
+  let ignoreDocumentClickOnce = false;
+  const safeToggleNav = function (event) {
+    ignoreDocumentClickOnce = true;
+    toggleNav(event);
+    setTimeout(() => { ignoreDocumentClickOnce = false; }, 0);
+  };
 
+  navToggleBtn.addEventListener('click', safeToggleNav);
+  navToggleBtn.addEventListener('touchstart', safeToggleNav);
+
+  // Click fora do nav fecha o menu
   document.addEventListener('click', function (event) {
+    if (ignoreDocumentClickOnce) return;
     if (!event.target.closest('nav')) {
       navToggleBtn.classList.remove('active');
       navLinksMenu.classList.remove('open');
@@ -163,4 +172,10 @@ function initMobileNav() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', initMobileNav);
+// Inicialização única
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('calGrid')) {
+    renderCal();
+  }
+  initMobileNav();
+});
