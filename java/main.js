@@ -91,12 +91,19 @@ function calcular() {
   const total = pacoteVal * pessoas;
   const dataFmt = document.getElementById('calDisplay')?.textContent || '';
 
-  document.getElementById('rNome')?.textContent = nome;
-  document.getElementById('rData')?.textContent = dataFmt;
-  document.getElementById('rHoras')?.textContent = horas + ' horas';
-  document.getElementById('rPacote')?.textContent = pacoteLabel;
-  document.getElementById('rPessoas')?.textContent = pessoas + ' pessoas';
-  document.getElementById('rTotal')?.textContent = CURRENCY_FORMATTER.format(total);
+  const rNome = document.getElementById('rNome');
+  const rData = document.getElementById('rData');
+  const rHoras = document.getElementById('rHoras');
+  const rPacote = document.getElementById('rPacote');
+  const rPessoas = document.getElementById('rPessoas');
+  const rTotal = document.getElementById('rTotal');
+
+  if (rNome) rNome.textContent = nome;
+  if (rData) rData.textContent = dataFmt;
+  if (rHoras) rHoras.textContent = horas + ' horas';
+  if (rPacote) rPacote.textContent = pacoteLabel;
+  if (rPessoas) rPessoas.textContent = pessoas + ' pessoas';
+  if (rTotal) rTotal.textContent = CURRENCY_FORMATTER.format(total);
 
   const msg = `Olá! Gostaria de um orçamento para a Loba Drinks 🐺\n\n` +
     `*Nome:* ${nome}\n` +
@@ -165,10 +172,19 @@ function initMobileNav() {
   // Click fora do nav fecha o menu
   document.addEventListener('click', function (event) {
     if (ignoreDocumentClickOnce) return;
+    // Verifica se o clique foi fora da nav
     if (!event.target.closest('nav')) {
       navToggleBtn.classList.remove('active');
       navLinksMenu.classList.remove('open');
     }
+  });
+
+  // Fechar menu ao clicar em um link
+  navLinksMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      navToggleBtn.classList.remove('active');
+      navLinksMenu.classList.remove('open');
+    });
   });
 }
 
