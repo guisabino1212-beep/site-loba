@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio - Loba Drinks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    /* Estilos específicos para a página de cardápio */
+    .cardapio-section {
+      background: var(--deep);
+      padding: 3rem 0;
+    }
+
+    .cardapio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .cardapio-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .cardapio-header .section-label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .cardapio-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+
+    .cardapio-header h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cardapio-header .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--amber);
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .cardapio-main {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+    }
+
+    .cardapio-main.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .cardapio-image {
+      flex: 0 0 45%;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(142, 79, 251, 0.2);
+    }
+
+    .cardapio-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .cardapio-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .cardapio-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .cardapio-content .subtitle {
+      font-size: 0.9rem;
+      color: var(--amber);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .cardapio-content p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .drinks-section {
+      margin-bottom: 2rem;
+    }
+
+    .drinks-section h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .drink-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(142, 79, 251, 0.15);
+    }
+
+    .drink-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .drink-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+
+    .drink-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .cardapio-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn-orcamento {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-orcamento-site {
+      background: #1e90ff;
+      color: white;
+    }
+
+    .btn-orcamento-site:hover {
+      background: #1678d8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+    }
+
+    .btn-orcamento-whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .btn-orcamento-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .cardapio-divider {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--amber), transparent);
+      margin: 3rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .cardapio-main,
+      .cardapio-main.reverse {
+        flex-direction: column;
+      }
+
+      .cardapio-image {
+        flex: 1 1 100%;
+      }
+
+      .cardapio-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .cardapio-header h1 {
+        font-size: 2rem;
+      }
+
+      .cardapio-buttons {
+        flex-direction: column;
+      }
+
+      .btn-orcamento {
+        width: 100%;
+      }
+
+      .cardapio-header .tagline {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="wolf-mark"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>
+      <div>
+        <div class="brand-name">Loba Drinks</div>
+        <div class="brand-sub">Alquimia &amp; Coquetelaria</div>
+      </div>
+    </div>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Sabores</a>
+        <a href="html/cardapio.html" class="active">Cardápio</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="index.html#about">Sobre</a>
+      <a href="index.html#calculadora">Orçamento</a>
+      <a href="index.html#contact">Contato</a>
+      <a href="faq.html">Dúvidas</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CARDÁPIO SECTION -->
+<section class="cardapio-section">
+  <div class="cardapio-container">
+    <div class="cardapio-header">
+      <span class="section-label">Bebidas Artesanais</span>
+      <h1>Nosso <em>Cardápio</em></h1>
+      <div class="section-rule" style="width: 60px; height: 2px; background: var(--amber); margin: 1.5rem auto;"></div>
+    </div>
+
+    <!-- ========== CARDÁPIO 3: ALQUIMIA DA ALCATEIA ========== -->
+    <div class="cardapio-main">
+      <div class="cardapio-image">
+        <img src="img/cardapio/grok-image-3b107102-fd3c-4b30-a821-f0617c6a69b3.jpg" alt="Alquimia da Alcateia">
+      </div>
+      <div class="cardapio-content">
+        <h2>Alquimia da Alcateia</h2>
+        <div class="subtitle">Magia em Cada Sabor</div>
+        
+        <!-- COM ÁLCOOL -->
+        <div class="drinks-section">
+          <h3>🔥 Fogo da Alcateia</h3>
+          <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Com Álcool</p>
+          
+          <div class="drink-item">
+            <div class="drink-name">🍓🍋 Ritual das Cores</div>
+            <div class="drink-description">Nossa celebração da fruta com a força da Vodka, Saquê ou Cachaça. Sabores: Limão, Morango, Maracujá e Abacaxi.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🏖️🍹 Sex on the Beach</div>
+            <div class="drink-description">O clássico vibrante para noites intensas.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🌴🥥 Piña Loba</div>
+            <div class="drink-description">A doçura tropical que envolve e conquista.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🌿💙 Frescor do Uivo</div>
+            <div class="drink-description">Refrescante e herbal, desperta os sentidos com o toque perfeito de hortelã e limão.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍯✨ Instinto Doce</div>
+            <div class="drink-description">Doçura irresistível que revela o lado mais sedutor da nossa alquimia.</div>
+          </div>
+        </div>
+
+        <!-- ESSÊNCIA PURA -->
+        <div class="drinks-section">
+          <h3>✨ Essência Pura</h3>
+          <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Sem Álcool</p>
+          
+          <div class="drink-item">
+            <div class="drink-name">🍓🍍 Ritual das Cores - Zero Álcool</div>
+            <div class="drink-description">Todo o sabor das frutas da estação em uma versão leve.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🌊🏖️ Beach Vibes</div>
+            <div class="drink-description">A energia do mar em um drink refrescante.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍍🟣 Presas Tropicais</div>
+            <div class="drink-description">Nossa mistura exclusiva de Morango e Maracujá para quem não abre mão do sabor visceral.</div>
+          </div>
+        </div>
+
+        <div class="cardapio-buttons">
+          <a href="https://wa.me/5511951253897?text=Olá! Gostaria de saber mais sobre a Alquimia da Alcateia" target="_blank" class="btn-orcamento btn-orcamento-whatsapp">ORÇAMENTO VIA WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cardapio-divider"></div>
+
+    <!-- ========== CARDÁPIO 2: FOGO DA ALCATEIA ========== -->
+    <div class="cardapio-main">
+      <div class="cardapio-image">
+        <img src="img/cardapio/grok-image-b4518402-fd58-4eba-a013-4376fa869a9a.jpg"Fogo da Alcateia">
+      </div>
+      <div class="cardapio-content">
+        <h2> Trilha do Sentido</h2>
+        <div class="subtitle">Celebração em Cada Gole</div>
+        
+        <!-- COM ÁLCOOL -->
+        <div class="drinks-section">
+          <h3>🔥 Com Álcool</h3>
+          
+          <div class="drink-item">
+            <div class="drink-name">🍓🍋 Ritual das Cores</div>
+            <div class="drink-description">Nossa celebração da fruta com a força da Vodka, Saquê ou Cachaça. Sabores: Limão, Morango, Maracujá e Abacaxi. Sujeito à disponibilidade da estação.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">💙 Olhar da Loba - Blue Lagoon</div>
+            <div class="drink-description">Nossa versão de Blue Lagoon com xarope de limão autoral.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">☀️🟡 Sol da Selva - Tropical Sun</div>
+            <div class="drink-description">A energia do sol em um drink à base de Saquê e a vivacidade do maracujá.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🌿 Frescor do Uivo - Mojito</div>
+            <div class="drink-description">A refrescância que guia o seu instinto, um clássico da coquetelaria.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍓✨ Presa de Verão - Batida de Morango</div>
+            <div class="drink-description">A doçura visceral do morango em uma batida cremosa e refrescante.</div>
+          </div>
+        </div>
+
+        <!-- ESSÊNCIA PURA -->
+        <div class="drinks-section">
+          <h3>✨ Essência Pura</h3>
+          <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Sem Álcool</p>
+          
+          <div class="drink-item">
+            <div class="drink-name">❄️🥂 Brilho Neon - Soda Italiana Autoral</div>
+            <div class="drink-description">A transparência e o frescor da Soda Italiana, em cores que iluminam a festa.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍓🍍 Ritual das Cores - Zero Álcool</div>
+            <div class="drink-description">Todo o sabor das frutas da estação em uma versão leve e autêntica.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍍🟣 Presas Tropicais</div>
+            <div class="drink-description">Nossa mistura exclusiva de Morango e Maracujá para quem não abre mão do sabor visceral.</div>
+          </div>
+        </div>
+
+        <div class="cardapio-buttons">
+          <a href="https://wa.me/5511951253897?text=Olá! Gostaria de saber mais sobre o Fogo da Alcateia" target="_blank" class="btn-orcamento btn-orcamento-whatsapp">ORÇAMENTO VIA WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cardapio-divider"></div>
+
+    <!-- ========== CARDÁPIO 1: ALCATEIA (ATUALIZADO) ========== -->
+    <div class="cardapio-main">
+      <div class="cardapio-image">
+        <img src="img/cardapio/grok-image-358a968a-5d80-4d2c-b5bb-16156741d5ba.jpg" alt="Legado da Alcateia">
+      </div>
+      <div class="cardapio-content">
+        <h2>Legado da Alcateia</h2>
+        <div class="subtitle">Siga seu Instinto</div>
+        
+        <!-- FOGO DA ALCATEIA -->
+      <div class="drinks-section">
+          <h3>🔥 Fogo da Alcateia</h3>
+          <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Drinks Alcoólicos e Autorais</p>
+          
+          <div class="drink-item">
+            <div class="drink-name">💎💜 Ouro Púrpura</div>
+            <div class="drink-description">Uma fusão sofisticada de Gin, Tônica e a intensidade das frutas vermelhas/amora.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">☕🍫 Uivo Doce</div>
+            <div class="drink-description">O aclamado cappuccino alcoólico autoral, unindo o café à intensidade do Licor Sangue de Cacau.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🔥🍋 Juízo da Loba</div>
+            <div class="drink-description">Uma prova de coragem que combina Tequila, Cachaça, Maracujá e a picância do xarope de Gengibre.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍊🌀 Rastro Tropical</div>
+            <div class="drink-description">Uma trilha cítrica e refrescante feita com o Licor de Laranja Loba e água gaseificada/H2O.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍓🍍 Ritual das Cores</div>
+            <div class="drink-description">Festival de Caipirinhas com frutas da estação e sua base preferida: Vodka, Saquê ou Cachaça.</div>
+          </div>
+        </div>
+
+        <!-- ESSÊNCIA PURA -->
+        <div class="drinks-section">
+          <h3>✨ Essência Pura</h3>
+          <p style="color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">Drinks Sem Álcool</p>
+          
+          <div class="drink-item">
+            <div class="drink-name">🍓☁️ Pata de Veludo</div>
+            <div class="drink-description">Uma mistura sedosa e irresistível de Morango, Hortelã e a cremosidade do leite condensado.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🐺🟡 Presas Tropicais</div>
+            <div class="drink-description">O dueto visceral de Morango e Maracujá para quem busca explosão de sabor sem álcool.</div>
+          </div>
+
+          <div class="drink-item">
+            <div class="drink-name">🍓🍊 Ritual das Cores Zero</div>
+            <div class="drink-description">Toda a vivacidade das frutas da estação em uma versão leve e autêntica.</div>
+          </div>
+        </div>
+
+          <div class="cardapio-buttons">
+          <a href="https://wa.me/5511951253897?text=Olá! Gostaria de saber mais sobre o Legado da Alcateia" target="_blank" class="btn-orcamento btn-orcamento-whatsapp">ORÇAMENTO VIA WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-wolf"><img src="img/logo/ChatGPT%20Image%201%20de%20jun.%20de%202026,%2017_09_12.png" alt="Loba Drinks logo"></div>
+  <div class="footer-brand">Loba Drinks</div>
+  <div class="footer-sub">Alquimia &amp; Coquetelaria</div>
+  <div class="footer-copy">© 2026 Loba Drinks. Todos os direitos reservados.</div>
+  <div style="margin-top:1rem;font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--muted);font-size:1rem;">"Feito com o coração da alcateia" ✨</div>
+  <div class="footer-legal">⚠️ Beba com responsabilidade. Venda proibida para menores de 18 anos.</div>
+</footer>
+
+<script src="java/main.js" defer></script>
+
+</body>
+</html>
+

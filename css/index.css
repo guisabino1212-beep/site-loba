@@ -98,7 +98,7 @@ nav {
   background:
     radial-gradient(ellipse 60% 50% at 50% 60%, rgba(142,79,251,0.16) 0%, transparent 70%),
     radial-gradient(ellipse 40% 30% at 20% 20%, rgba(122,58,189,0.18) 0%, transparent 60%),
-    linear-gradient(rgba(5,3,5,0.75), rgba(10,4,18,0.45)),
+    linear-gradient(rgba(5,3,5,0.88), rgba(10,4,18,0.62)),
     url("../img/servi├ºos/acrescente_balde_de_gelo_2K_202606011611.jpeg"),
     var(--black);
   background-size: cover;
@@ -139,6 +139,13 @@ nav {
   margin: 1.5rem auto;
   max-width: 520px;
 }
+
+.hero-desc-strong{
+  color: var(--cream);
+  font-weight: 600;
+  text-shadow: 0 2px 18px rgba(142,79,251,0.35);
+}
+
 .hero-line {
   width: 60px; height: 1px;
   background: var(--amber);

@@ -150,10 +150,13 @@ nav {
 .faq-subtitle {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.1rem;
-  color: var(--muted);
+  font-size: 1.18rem;
+  color: var(--cream);
   max-width: 480px;
+  letter-spacing: 0.01em;
   margin: 0 auto;
+  text-shadow: 0 0 18px rgba(142,79,251,0.22);
+  font-weight: 500;
 }
 .hero-line {
   width: 50px; height: 1px;
@@ -205,10 +208,18 @@ nav {
 .accordion-question {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.4;
   flex: 1;
+  color: var(--cream);
+  text-shadow: 0 0 18px rgba(142,79,251,0.22);
 }
+.accordion-btn:hover .accordion-question,
+.accordion-btn.open .accordion-question {
+  color: var(--gold);
+  text-shadow: 0 0 22px rgba(179,131,255,0.35);
+}
+
 .accordion-icon {
   width: 26px; height: 26px;
   border: 1px solid var(--border);
@@ -239,7 +250,11 @@ nav {
   font-size: 0.93rem;
   line-height: 1.85;
 }
-.accordion-body-inner strong { color: var(--cream); font-weight: 500; }
+.accordion-body-inner strong {
+  color: var(--cream);
+  font-weight: 700;
+  text-shadow: 0 0 18px rgba(142,79,251,0.18);
+}
 .accordion-body-inner ul {
   margin: 0.75rem 0 0 1.2rem;
   display: flex;

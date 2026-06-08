@@ -1,0 +1,16 @@
+/* Cardápio page tweaks (usa o layout base do index.css) */
+
+#cardapio-hero {
+  /* ajusta a altura sem quebrar responsividade */
+  min-height: 85vh;
+}
+
+.cardapio-section {
+  background: var(--deep);
+}
+
+.cardapio-cta {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+

@@ -160,6 +160,12 @@ nav {
   margin: 1.5rem auto;
   max-width: 520px;
 }
+
+.hero-desc-strong{
+  color: var(--cream);
+  font-weight: 600;
+  text-shadow: 0 2px 18px rgba(142,79,251,0.35);
+}
 .hero-line {
   width: 60px; height: 1px;
   background: var(--amber);
@@ -422,7 +428,7 @@ footer {
   justify-content: space-between;
   color: #ffffff;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif, Arial;
+  font-family: 'DM Sans', sans-serif;
 }
 
 #strike-cta-section .cta-image {
@@ -526,7 +532,7 @@ footer {
   background-color: #000000;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif, Arial;
+  font-family: 'DM Sans', sans-serif;
 }
 
 #strike-cta-wrapper {
@@ -557,7 +563,7 @@ footer {
   right: 0;
   width: 40%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1));
+  background: linear-gradient(to right, rgba(0,0,0,0.15), rgba(0,0,0,1));
 }
 
 .strike-col-text {
